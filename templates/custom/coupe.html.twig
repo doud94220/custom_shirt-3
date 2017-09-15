@@ -1,0 +1,41 @@
+{% extends "layout.html.twig" %}
+{% block title 'Customisation' %}
+
+
+    {% block content %}
+        <h1>Etape suivante ! </h1>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:30%;">30%</div>
+        </div>
+        <h2 class="sous_titre"> Choix de votre coupe </h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                    <form name="choix_tissu" method="post">
+                        <div class="form-group">
+                            <table class="table">
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>Description</th>
+                                    <th>Photo</th>
+                                </tr>
+                                {% for coupe in coupes %}
+                                    <tr>
+                                        <td>{{ coupe.titre_coupe }} </td>
+                                        <td>{{ coupe.description_coupe }} </td>
+                                        <td><img src="{{ coupe.photo_coupe }}" alt="" width="200" class="select_img" data-id="{{ coupe.id_coupe }}"/> </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            <button type="submit" class="btn btn-primary" > Validation du formulaire </button>
+                            <input type="hidden" name="custom_product" id="custom_product">
+                        </div>
+                    </form>
+                </div>
+            </div>
+    {% endblock %}
+
+        {% block javascripts %}
+        {{ parent() }}
+     <script src="{{ asset('script/choixcustom.js')}}"></script>
+          {% endblock %}
