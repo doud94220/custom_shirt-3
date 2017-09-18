@@ -55,7 +55,7 @@
                     est da la BD), sinon (création d'un nouveaux produit) on affiche pas l'image(car le produit existe pas
                     da la BD)#}
                     {% if produit.id is not empty %}
-                        <img class="current_image" src="http://localhost/custom_shirt-2/web/img/{{ produit.photo }}">
+                        <img class="current_image" src="http://localhost/custom_shirt-3/web/img/{{ produit.photo }}">
                         <input type="hidden" name="photo_actuelle" value="{{ produit.photo }}">
                     {% endif %}
                 </div>
